@@ -30,6 +30,7 @@ const prevPage = () => {
 
 return (
     <>
+    <h1>Hello faggot</h1>
     <h1>Pokemon</h1>
        {
         pokemons ? (
