@@ -12,12 +12,12 @@ import { Link } from "react-router-dom"
 
 
 useEffect(() => {
- const fetchPokemon = async () => {
+ const fetchPokemons = async () => {
     const response = await fetch(url)
     const json = await response.json()
     setPokemons(json)
  }
- fetchPokemon()
+ fetchPokemons()
 }, [url])
 
 
