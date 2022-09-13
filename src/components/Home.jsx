@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
   const Home = () => {
   const [pokemons, setPokemons] = useState()
@@ -7,17 +8,20 @@ import { useState, useEffect } from "react"
 
 
     //hier doen we API call
-    const fetchPokemon = async () => {
+   
+
+
+useEffect(() => {
+ const fetchPokemon = async () => {
     const response = await fetch(url)
     const json = await response.json()
     setPokemons(json)
  }
-
-useEffect(() => {
-    fetchPokemon()
+ fetchPokemon()
 }, [url])
 
-{/* 2. Next page */}
+
+// 2. Next page
 const nextPage = () => {
   setUrl(pokemons.next)
 }
@@ -36,12 +40,13 @@ return (
         pokemons ? (
             <ul>
                 {
-                    pokemons.results.map((pokemon)=>{
-                    const { name } = pokemon
-                    return (
-                      <li key={name}>{ name }</li>
+                    pokemons.results.map(
+                      ({ name })=> ( 
+                        <li>
+                      <Link key={name} to={name}> {name}</Link>
+                        </li>
                       )
-                    })
+                    )
                 }
             </ul>
             ) : (
