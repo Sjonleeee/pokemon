@@ -36,10 +36,16 @@ const PokemonDetail = () => {
 
           <h3>Forms</h3>
           {pokemon.forms.map((fm) => (
-            <>
-              <p>Name: {fm.name}</p>
-              <p>Url: {fm.url}</p>
-            </>
+            <table>
+              <tr>
+                <td> Name:</td>
+                <td>{fm.name}</td>
+              </tr>
+              <tr>
+                <td> Url: </td>
+                <td> {fm.url}</td>
+              </tr>
+            </table>
           ))}
 
           <h3>Game Index</h3>
